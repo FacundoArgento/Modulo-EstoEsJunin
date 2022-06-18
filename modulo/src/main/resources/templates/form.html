@@ -23,8 +23,8 @@
                 <span class="name m-lg-4 fs-2 align-middle text-black"><b>Registro</b></span>
                 <div class="mx-auto "></div>
                 <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a href="index" th:href="@{/index}" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button"><b>Volver a la página principal</b></a>
+                    <li sec:authorize="isAnonymous()" class="nav-item">
+                        <a href="/index" th:href="@{/index}" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button"><b>Volver a la página principal</b></a>
                     </li>
                     <!--
                     <li sec:authorize="isAnonymous()" class="nav-item">
@@ -60,20 +60,19 @@
 
                     <div class="container my-4">
                         <div class="row">
-                            <div class="col-6"></div>
                             <div class="col-12">
                                 <form class="form-group" action="#" th:action="@{/users/new}" th:object="${User}" method="post">
                                     <div class="row">
                                         <div class="form-floating my-1 col-6">
-                                            <input type="text" name="firstName" class="form-control" id="InputNombre" placeholder="Ingrese su nombre" th:value="*{firstName}" required>
+                                            <input type="text" name="nombre" class="form-control" id="InputNombre" placeholder="Ingrese su nombre" th:value="*{nombre}" required>
                                             <label for="InputNombre">Nombre</label>
                                         </div>
                                         <div class="form-floating my-1 col-6">
-                                            <input type="text" name="lastName" class="form-control" id="InputApellido" placeholder="Ingrese su apellido" th:value="*{lastName}" required>
+                                            <input type="text" name="apellido" class="form-control" id="InputApellido" placeholder="Ingrese su apellido" th:value="*{apellido}" required>
                                             <label for="InputApellido">Apellido</label>
                                         </div>
                                     </div>
-                                    <div class="form-floating mt-2 mb-3">
+                                    <div class="form-floating mt-2 mb-2">
                                         <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Ingrese su correo electrónico" th:value="*{email}" required>
                                         <label for="InputEmail">Correo electrónico</label>
                                         <small id="emailHelp" class="form-text text-muted">No compartiremos su correo electrónico con nadie.</small>
@@ -89,11 +88,24 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-floating mt-2 mb-3 col-6">
-                                            <input type="date" name="birthDate" class="form-control" id="InputBirthDate" placeholder="Ingrese su fecha de nacimiento" th:value="*{birthDate}" required>
-                                            <label for="InputBirthDate">Fecha de nacimiento</label>
+                                        <div class="form-floating mb-0 col-6">
+                                            <input type="text" name="telefono" class="form-control" id="InputTelefono" placeholder="Ingrese su teléfono" th:value="*{telefono}" required>
+                                            <label for="InputDireccion">Teléfono</label>
                                         </div>
+                                        <div class="form-floating mb-0 col-6">
+                                            <input type="text" name="direccion" class="form-control" id="InputDireccion" placeholder="Ingrese su direccion" th:value="*{direccion}" required>
+                                            <label for="InputDireccion">Dirección</label>
+                                        </div>
+                                        <small id="telefonoHelp" class="form-text text-muted">Ingrese un número de teléfono que utilice WhatsApp.</small>
+                                    </div>
+                                    <div class="row">
+                                        <!--
                                         <div class="form-floating mt-2 mb-3 col-6">
+                                            <input type="..." name="..." class="form-control" id="Input..." placeholder="Ingrese su ..." th:value="*{...}" required>
+                                            <label for="...">...</label>
+                                        </div>
+                                        -->
+                                        <div class="form-floating mt-2 mb-3">
                                             <select id="InputRubro" name="rubro" class="form-select" th:value="*{rubro}" required>
                                                     <option selected disabled>Seleccione su rubro</option>
                                                     <option>Albañil</option>
@@ -101,10 +113,10 @@
                                                     <option>Gasista</option>
                                                     <option>Plomero</option>
                                                 </select>
-                                            <label for="InputNationality">Rubro</label>
+                                            <label for="InputRubro">Rubro</label>
                                         </div>
                                     </div>
-                                    <div class="mb-3 checkbox">
+                                    <div class="mb-2 checkbox">
                                         <input type="checkbox" class="form-check-input" id="Check1" required>
                                         <label class="form-check-label" for="Check1">Acepto los términos y condiciones.</label>
                                     </div>

@@ -18,6 +18,7 @@ public class Seccion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "seccion_id")
     private long id;
 
     @Column(name = "nombre")
@@ -35,20 +36,21 @@ public class Seccion {
     @Column(name= "foto")
     private File foto;
 
-    @OneToOne(fetch=FetchType.LAZY)
+    /*@OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name= "profesional_id")
-    private Profesional profesional;
+    private Profesional profesional;*/
 
-    
-    public Seccion(long id, String nombre, String pagina_web, String redes_sociales, String descripcion, File foto,
-            Profesional profesional) {
+    public Seccion() {
+    }
+
+    public Seccion(long id, String nombre, String pagina_web, String redes_sociales, String descripcion, File foto) {
         this.id = id;
         this.nombre = nombre;
         this.pagina_web = pagina_web;
         this.redes_sociales = redes_sociales;
         this.descripcion = descripcion;
         this.foto = foto;
-        this.profesional = profesional;
+        //this.profesional = profesional;
     }
 
     //getters y setters
@@ -100,12 +102,12 @@ public class Seccion {
         this.foto = foto;
     }
 
-    public Profesional getId_profesional() {
+    /*public Profesional getId_profesional() {
         return profesional;
     }
 
     public void setId_profesional(Profesional profesional) {
         this.profesional = profesional;
-    }
+    }*/
 
 }

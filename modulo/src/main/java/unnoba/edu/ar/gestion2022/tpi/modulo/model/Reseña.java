@@ -10,25 +10,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
-
-
 @Entity
 @Table(name="reseñas")
 public class Reseña {
-    
-    public Reseña(long id, String titulo, String texto, float valoracion, Seccion seccion, Usuario usuario) {
+
+    public Reseña() {
+    }
+
+    public Reseña(long id, String titulo, String texto, float valoracion, Seccion seccion) {
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
         this.valoracion = valoracion;
         this.seccion = seccion;
-        this.usuario = usuario;
+        //this.user = user;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reseña_id")
     private long id;
 
     @Column(name = "titulo")
@@ -44,10 +44,9 @@ public class Reseña {
     @JoinColumn(name="seccion_id", nullable = false)
 	private Seccion seccion;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    /*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="usuario_id", nullable = false)
-    private Usuario usuario;
-
+    private User user;*/
 
     // getters y setters
     public long getId() {
@@ -90,13 +89,12 @@ public class Reseña {
         this.seccion = seccion;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    /*public User getUsuario() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
+    public void setUsuario(User user) {
+        this.user = user;
+    }*/
 
 }
