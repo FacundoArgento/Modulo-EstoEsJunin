@@ -20,6 +20,9 @@ public class NuevaReseñaDTO {
         
     }
 
+    public NuevaReseñaDTO(){
+        
+    }
 
     public String getTitulo() {
         return titulo;
