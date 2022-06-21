@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -29,7 +28,7 @@ public class WebSecurityConfig {
                     .disable()
                 .authorizeRequests()
                     .antMatchers(HttpMethod.GET, "/", "/resources/**", "/static/**", "/**/*.js", "/**/*.js.map", "/**/*.css", "/**/*.svg", "/**/*.png").permitAll()
-                    .antMatchers("/users", "/users/new", "/form", "/listado", "/index", "/", "/error").permitAll()
+                    .antMatchers("/users", "/users/new", "/form", "/profesionales/*", "/index", "/", "/error").permitAll()
                     .antMatchers(HttpMethod.POST, "/users/new").permitAll()
                     .anyRequest().authenticated()
                     .and()
