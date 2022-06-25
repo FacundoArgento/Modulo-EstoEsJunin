@@ -56,5 +56,22 @@ public class UserService {
     public Long findUserIDByUsername(String username) {
         return userRepository.findUserIDByUsername(username);
     }
+
+    public List<User> listadoPlomeros(){
+        String rubro ="Plomero";
+        return userRepository.listaPlomeros(rubro);
+    }
+
+    public List<User> listadoGasistas(){
+        return userRepository.listaGasista();
+    }
+
+    public List<User> listadoAlbaniles(){
+        return userRepository.listaAlbanil();
+    }
+    public List<User> listadoElectricistas(){
+        return userRepository.listaElectricista();
+    }
+
     
 }
