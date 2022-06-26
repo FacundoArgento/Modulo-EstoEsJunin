@@ -19,7 +19,8 @@ public class UserController {
 
     // Formulario de login
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("titulo", "Ingreso de usuario");
         return "login";
     }
 
@@ -27,6 +28,7 @@ public class UserController {
     @GetMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
+        model.addAttribute("titulo", "Ingreso de usuario");
         return "login";
     }
 
@@ -43,6 +45,7 @@ public class UserController {
     @GetMapping("/users/new")
     public String crearUsuario(Model model){
         model.addAttribute("User", new User());
+        model.addAttribute("titulo", "Registro de usuario");
         return "form";
     }
 

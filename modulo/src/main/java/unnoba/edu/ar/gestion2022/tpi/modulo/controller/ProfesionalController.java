@@ -19,7 +19,8 @@ public class ProfesionalController {
     private UserService userService;
 
     @GetMapping("/listado")
-    public String listado() {
+    public String listado(Model model) {
+        model.addAttribute("titulo", "Listado de profesionales");
         return "listado";
     }
 
@@ -27,6 +28,7 @@ public class ProfesionalController {
     public String listaPlomero(Model model){
         List<User> plomero = userService.listadoPlomeros();
         model.addAttribute("listado", plomero);
+        model.addAttribute("titulo", "Listado de plomeros");
         return "plomeros";
     }
 
@@ -34,6 +36,7 @@ public class ProfesionalController {
     public String listaGasistas(Model model){
         List<User> gasistas = userService.listadoGasistas();
         model.addAttribute("listado", gasistas);
+        model.addAttribute("titulo", "Listado de gasistas");
         return "gasistas";
     }
 
@@ -41,6 +44,7 @@ public class ProfesionalController {
     public String listaElectricistas(Model model){
         List<User> electricistas = userService.listadoElectricistas();
         model.addAttribute("listado", electricistas);
+        model.addAttribute("titulo", "Listado de electricista");
         return "electricistas";
     }
 
@@ -48,6 +52,7 @@ public class ProfesionalController {
     public String listaAlbaniles(Model model){
         List<User> albaniles = userService.listadoAlbaniles();
         model.addAttribute("listado", albaniles);
+        model.addAttribute("titulo", "Listado de albañiles");
         return "albaniles";
     }
 }

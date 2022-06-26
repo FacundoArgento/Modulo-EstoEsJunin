@@ -1,57 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
 
-<head>
-    <title>Esto Es GdP - Bienvenidos</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-    </style>
-</head>
+<header th:replace="layout/layout :: header"></header>
+<br>
 
-<body class="bg-image img-fluid" style="background-image: url(../static/images/bg.png);" th:style="'background-image:url(' + @{/images/bg.png} + ');'">
-
-    <header></header>
-
-    <div>
-
-        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-default p-md-3 bg-transparent ">
-            <div class="container-fluid ">
-                <a class="navbar-brand "><img src="../static/images/logo.png" th:src="@{/images/logo2.png}" class="img-responsive " height="110 "></a>
-                <span class="name m-lg-4 fs-2 align-middle text-black"><b>Página principal</b></span>
-                <div class="mx-auto "></div>
-                <ul class="navbar-nav ">
-                    <li sec:authorize="isAnonymous()" class="nav-item">
-                        <form th:action="@{/login}" method="GET" name="loginForm" id="login">
-                            <button type="submit" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" value="Sign In "><b>Iniciar sesión</b></button>
-                        </form>
-                    </li>
-                    <li sec:authorize="isAnonymous()" class="nav-item ">
-                        <a href="/users/new" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button "><b>Registro</b></a>
-                    </li>
-                    <!--
-                    <li sec:authorize="isAuthenticated()" class="nav-item ">
-                        <a href="/home" class="nav-link btn btn-outline-primary btn-lg align-middle me-5" role="button"><b>Home</b></a>
-                    </li>
-                    <li sec:authorize="isAuthenticated()" class="nav-item ">
-                        <a href="" class="nav-link btn btn-outline-primary btn-lg align-middle me-5" role="button"><b>Listado de profesionales</b></a>
-                    </li>
-                    <li sec:authorize="isAuthenticated()" class="nav-item ">
-                        <a href="/logout" class="nav-link btn btn-outline-primary btn-lg align-middle me-5 " role="button "><b>Cerrar sesión</b></a>
-                    </li>
-                    -->
-                </ul>
-            </div>
-        </nav>
-
-        <br>
-
-        <div class="container-fluid ">
+<div class="container-fluid ">
             <div class="d-sm-flex justify-content-around content ">
                 <div class="content-left text-center ms-5 ">
-                    <br><br><br><br><br><br><br>
+                    <br><br><br><br>
                     <h1 class="text-blue "><b>Bienvenidos!</b></h1>
                     <h2>La guía de los de sistemas.</h2>
                     <div class="description ">
@@ -63,7 +21,7 @@
                 </div>
 
                 <div class="imagen ">
-                    <br><br><br><br>
+                    <br>
                     <img src="../static/images/undraw_books_re_8gea.svg" th:src="@{/images/undraw_books_re_8gea.svg}" class="img-responsive " height="400 ">
                 </div>
 
@@ -71,12 +29,11 @@
         </div>
     </div>
 
-    <div class="fixed-bottom text-end me-1 text-white">Facundo Argento - Abril Carini - Martín Fargnoli - Nicolás Di Pierro</div>
-    <div class="fixed-bottom text-start ms-1 text-white">UNNOBA 2022 - Gestión de Proyectos</div>
+    <br><br><br><br><br><br><br><br>
 
-    <!-- Bundle de dependencias de Bootstrap (por las dudas). -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
+
+    <footer th:replace="layout/layout :: footer"></footer>
 </body>
 
 </html>
