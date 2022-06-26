@@ -73,5 +73,8 @@ public class UserService {
         return userRepository.listaElectricista();
     }
 
-    
+    public User findId(Long id){
+        return userRepository.findId(id);
+    }
+
 }

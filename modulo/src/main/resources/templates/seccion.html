@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+<header th:replace="layout/layout :: header"></header>
+<br>
+    <div class="container-fluid">
+        <div class="d-sm-flex justify-content-around content">
+            <div class="content-left text-center ms-4">
+                <div class="container my-4">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="row">
+                                <h1>Información</h1>
+                                <br><br>
+                                <p class="card-text" th:text="'Teléfono: '+ ${usuario.telefono} "></p>
+                                <p class="card-text" th:text="'Dirección: '+ ${usuario.direccion} "></p>
+                                <!--  <p class="card-text" th:text="'Horarios: '+ ${usuario.horarios} "></p> -->
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <h1>Quiénes somos</h1>
+                                <br><br>
+                             <!--   <p class="card-text" th:text="  ${usuario.descripcion} "></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--            <div class="imagen">-->
+            <!--                <br><br><br><br>-->
+            <!--                <img src="../static/images/signup.svg" th:src="@{/images/signup.svg}" class="img-responsive" height="450">-->
+            <!--            </div>-->
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+
+
+
+<footer th:replace="layout/layout :: footer"></footer>
+
+
+
+</body>
+
+</html>

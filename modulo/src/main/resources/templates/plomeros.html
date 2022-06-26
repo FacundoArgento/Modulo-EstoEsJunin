@@ -60,7 +60,7 @@
 <hr style="margin-left:5%; margin-right:11%;"/>
 <div  class="container">
     <ul th:each="usuario: ${listado}" class="list-group list-group-flush">
-        <a href="#">
+        <a th:href="@{/seccion/} + ${usuario.id}">
         <li th:text="${usuario.nombre}+' '+${usuario.apellido}" class="list-group-item"></li>
         </a>
     </ul>

@@ -23,4 +23,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     public List<User> listaElectricista();
     @Query("SELECT u FROM User u WHERE u.rubro= 'Gasista'")
     public List<User> listaGasista();
+    @Query("SELECT u FROM User u WHERE u.id=?1  ")
+    public User findId(Long id);
+
 }
