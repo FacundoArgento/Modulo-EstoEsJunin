@@ -7,7 +7,7 @@ public interface ReseñaServiceImp {
     
     public void guardarReseña(Reseña reseña);
 
-    public List<Reseña> getReseñasPorSeccion();
+    // public List<Reseña> getReseñasPorSeccion();
 
     public void eliminarReseñaPorId(Long id);
 }   

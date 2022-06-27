@@ -2,12 +2,14 @@ package unnoba.edu.ar.gestion2022.tpi.modulo.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import unnoba.edu.ar.gestion2022.tpi.modulo.dto.ReseñaDTO;
 import unnoba.edu.ar.gestion2022.tpi.modulo.model.Reseña;
 import unnoba.edu.ar.gestion2022.tpi.modulo.repository.ReseñaRepository;
 
+@Service
 public class ReseñaService implements ReseñaServiceImp {
     
     private ReseñaRepository reseñaRepository;
@@ -20,10 +22,10 @@ public class ReseñaService implements ReseñaServiceImp {
 
 
 
-    public List<Reseña> getReseñasPorSeccion() {
+    // public List<Reseña> getReseñasPorSeccion() {
         
-        return reseñaRepository.getReseñasBySeccionID();  //FALTA MODELAR SECCION PARA COMPLETAR..
-    }
+    //     return reseñaRepository.getReseñasBySeccionID();  //FALTA MODELAR SECCION PARA COMPLETAR..
+    // }
 
 
 

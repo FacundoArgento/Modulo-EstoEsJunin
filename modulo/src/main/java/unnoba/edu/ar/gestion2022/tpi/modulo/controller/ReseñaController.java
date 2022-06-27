@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,21 +27,19 @@ public class ReseñaController {
 
     private SeccionService seccionService;  // A IMPLEMENTAR
     private ReseñaService reseñaService;
-    private ModelMapper modelMapper;
+    private static ModelMapper modelMapper;
 
-    // @Autowired
     
-    public ReseñaController(SeccionService seccionService, ReseñaService reseñaService, ModelMapper modelMapper) {
+    public ReseñaController(SeccionService seccionService, ReseñaService reseñaService) {
         this.seccionService = seccionService;
         this.reseñaService = reseñaService;
-        this.modelMapper = modelMapper;
     }
 
     // mostrar reseñas en la pagina
     @PostMapping("/show")
     public String mostrarReseñas(Model model){
         List<Reseña> reseñas= new ArrayList<>();
-	    reseñas = reseñaService.getReseñasPorSeccion();     // FALTARIA MODELAR SECCION PARA COMPLETAR.. y pasar el id
+	    // reseñas = reseñaService.getReseñasPorSeccion();     // FALTARIA MODELAR SECCION PARA COMPLETAR.. y pasar el id
 		
 		List<ReseñaDTO> reseñasDTO = reseñas.stream()
                 .map(reseña -> modelMapper.map(reseña, ReseñaDTO.class))
