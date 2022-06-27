@@ -34,7 +34,7 @@ public class UserController {
 
     @GetMapping("/home")
     public String home() {
-        return "home";
+        return "index";
     }
 
     @GetMapping("/users")

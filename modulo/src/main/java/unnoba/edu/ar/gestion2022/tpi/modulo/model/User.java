@@ -44,8 +44,7 @@ public class User implements UserDetails {
 
     }
 
-    public User(long id, String apellido, String nombre, String email, String username, String password, String telefono, String direccion, String rubro, String role) {
-        this.id = id;
+    public User( String apellido, String nombre, String email, String username, String password, String telefono, String direccion, String rubro, String role) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;

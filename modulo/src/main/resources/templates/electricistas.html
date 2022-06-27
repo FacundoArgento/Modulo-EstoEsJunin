@@ -57,15 +57,32 @@
 </div>
 
 <hr style="margin-left:5%; margin-right:11%;"/>
-<div  class="container">
-    <ul th:each="usuario: ${listado}" class="list-group list-group-flush">
-        <a href="#">
-        <li th:text="${usuario.nombre}+' '+${usuario.apellido}" class="list-group-item"></li>
-        </a>
-    </ul>
+<!--Listado-->
+<div class="container">
+    <h4 th:if="${listado.isEmpty()}" style="color: #797D7F ">No hay electricistas registrados.</h4>
+    <div class="container" style="width: 50%;"  >
+        <div class="list-group" th:each="usuario: ${listado}" >
+            <a th:href="@{/seccion/} + ${usuario.id}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <!--Icono de ubicacion-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-geo-alt"
+                     viewBox="0 0 16 16" style="color: #FF8F00">
+                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h6 class="mb-0" th:text="${usuario.nombre}+' '+${usuario.apellido}"></h6>
+                        <p class="mb-0 opacity-75">Ingresa para ver más información.</p>
+                    </div>
+                    <!--Icono de flecha-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" style="color: #FF8F00">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    </svg>
 
-        <h4 th:if="${listado.isEmpty()}">No hay electricistas registrados.</h4>
-
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 
 <br><br><br><br><br><br><br><br>
