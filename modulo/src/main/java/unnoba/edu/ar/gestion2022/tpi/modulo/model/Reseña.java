@@ -17,13 +17,13 @@ public class Reseña {
     public Reseña() {
     }
 
-    public Reseña(long id, String titulo, String texto, float valoracion, Seccion seccion) {
+    public Reseña(long id, String titulo, String texto, float valoracion, Seccion seccion, User user) {
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
         this.valoracion = valoracion;
         this.seccion = seccion;
-        //this.user = user;
+        this.user = user;
     }
 
     @Id
@@ -44,9 +44,9 @@ public class Reseña {
     @JoinColumn(name="seccion_id", nullable = false)
 	private Seccion seccion;
 
-    /*@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="usuario_id", nullable = false)
-    private User user;*/
+    private User user;
 
     // getters y setters
     public long getId() {
@@ -89,12 +89,14 @@ public class Reseña {
         this.seccion = seccion;
     }
 
-    /*public User getUsuario() {
+    public User getUsuario() {
         return user;
     }
 
     public void setUsuario(User user) {
         this.user = user;
-    }*/
+    }
+
+    
 
 }

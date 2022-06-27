@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import unnoba.edu.ar.gestion2022.tpi.modulo.model.Profesional;
 import unnoba.edu.ar.gestion2022.tpi.modulo.model.User;
-import unnoba.edu.ar.gestion2022.tpi.modulo.service.ProfessionalService;
+
 import unnoba.edu.ar.gestion2022.tpi.modulo.service.UserService;
+
 
 import java.util.List;
 @Controller
@@ -55,4 +56,24 @@ public class ProfesionalController {
         model.addAttribute("titulo", "Listado de albañiles");
         return "albaniles";
     }
+
+    /*
+    private ProfesionalServiceImp profesionalService;
+
+    public ProfesionalController(ProfesionalServiceImp profesionalService) {
+        this.profesionalService = profesionalService;
+    }
+
+    @GetMapping("/{id}")
+    public String getInformacionProfesional(@PathVariable int id, Model model) {
+        Profesional profesional = profesionalService.findProfesionalById(id);
+        model.addAttribute("profesional", profesional);
+        return "profesional/pagina";
+    }
+
+    @GetMapping("/")
+    public String profesionalIndex(){
+        return "profesionales/index";
+    }
+    */
 }
