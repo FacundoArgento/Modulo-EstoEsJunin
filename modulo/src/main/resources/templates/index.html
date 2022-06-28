@@ -18,6 +18,11 @@
                         </p>
                     </div>
                     <a th:href="@{/listado}" class="btn btn-warning btn-lg my-3 text-white" role="button" aria-disabled="false"><b>Consultar el listado</b></a>
+                    <br>
+                    <br><br>
+                    <div sec:authorize="isAnonymous()" style="width:60%; margin-left:21%">
+                        <p class="lead mb-4">Si sos profesional y querés figurar en nuestra guía, registrate gratuitamente y completá tus datos.</p>
+                    </div>
                 </div>
 
                 <div class="imagen ">

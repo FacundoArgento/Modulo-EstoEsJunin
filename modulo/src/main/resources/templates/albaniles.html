@@ -57,11 +57,12 @@
 </div>
 
 <hr style="margin-left:5%; margin-right:11%;"/>
-<!--Listado-->
+
+<!--listado-->
 <div class="container">
-    <h4 th:if="${listado.isEmpty()}" style="color: #797D7F ">No hay albañiles registrados.</h4>
-    <div class="container" style="width: 50%;"  >
-        <div class="list-group" th:each="usuario: ${listado}" >
+    <h5 th:if="${listado.isEmpty()}" style="color: #797D7F ">No hay albañiles registrados.</h5>
+    <div class="row">
+        <div class="col-xs-12 col-md-4" th:each="usuario: ${listado}" style="border:0.5px solid gray; border-radius:10px; width:30%; margin:5px" >
             <a th:href="@{/seccion/} + ${usuario.id}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                 <!--Icono de ubicacion-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-geo-alt"
@@ -81,8 +82,11 @@
 
                 </div>
             </a>
+
         </div>
+
     </div>
+
 </div>
 
 <br><br><br><br><br><br><br><br>
