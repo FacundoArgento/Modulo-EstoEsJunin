@@ -1,54 +1,227 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout/layout :: head"></head>
+
+<style type="text/css">
+    body {
+        background-color: #f7f6f6;
+    }
+
+    .card {
+        /*width: 350px;*/
+        border: none;
+        /*box-shadow: 5px 6px 6px 2px #e9ecef;*/
+        border-radius: 12px;
+    }
+
+    .card-header, .card-body {
+        border: none !important;
+    }
+
+    .circle-image img {
+        border: 6px solid #fff;
+        border-radius: 100%;
+        padding: 0px;
+        top: -28px;
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        z-index: 1;
+        background: #e7d184;
+        cursor: pointer;
+    }
+
+    .dot {
+        height: 18px;
+        width: 18px;
+        background-color: blue;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        border: 3px solid #fff;
+        top: -48px;
+        left: 186px;
+        z-index: 1000;
+    }
+
+    .name {
+        margin-top: -21px;
+        font-size: 18px;
+    }
+
+    .fw-500 {
+        font-weight: 500 !important;
+    }
+
+    .start {
+        color: green;
+    }
+
+    .stop {
+        color: red;
+    }
+
+
+    .rate {
+
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+
+    }
+
+
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center
+    }
+
+    .rating > input {
+        display: none
+    }
+
+    .rating > label {
+        position: relative;
+        width: 1em;
+        font-size: 30px;
+        font-weight: 300;
+        color: #FFD600;
+        cursor: pointer
+    }
+
+    .rating > label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0
+    }
+
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+        opacity: 1 !important
+    }
+
+    .rating > input:checked ~ label:before {
+        opacity: 1
+    }
+
+    .rating:hover > input:checked ~ label:before {
+        opacity: 0.4
+    }
+
+
+    .buttons {
+        top: 36px;
+        position: relative;
+    }
+
+
+    .rating-submit {
+        border-radius: 15px;
+        color: #fff;
+        height: 49px;
+    }
+
+    .rating-submit:hover {
+
+        color: #fff;
+    }
+
+    .alert-logeado {
+        color: #ff2323;
+    }
+
+    .list-group-item{
+        border: none !important;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 
 <header th:replace="layout/layout :: header"></header>
 <br>
-    <div class="container-fluid">
-        <div class="d-sm-flex justify-content-around content">
-            <div class="content-left text-center ms-4">
-                <div class="container my-4">
-                    <div class="row">
-                        <div class="col-8">
+<div class="container-fluid">
+    <div class="d-sm-flex justify-content-around content">
+        <div class="content-left text-center ms-4">
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <h1>Información</h1>
+                            <br><br>
+                            <p class="card-text" th:text="'Teléfono: '+ ${usuario.telefono} "></p>
+                            <p class="card-text" th:text="'Dirección: '+ ${usuario.direccion} "></p>
+                            <!--  <p class="card-text" th:text="'Horarios: '+ ${usuario.horarios} "></p> -->
+
+                            <h1>Reseñas</h1>
+                            <br><br>
                             <div class="row">
-                                <h1>Información</h1>
-                                <br><br>
-                                <p class="card-text" th:text="'Teléfono: '+ ${usuario.telefono} "></p>
-                                <p class="card-text" th:text="'Dirección: '+ ${usuario.direccion} "></p>
-                                <!--  <p class="card-text" th:text="'Horarios: '+ ${usuario.horarios} "></p> -->
+                                <div class="col-4">
+                                    COMENTARIO 1
+                                </div>
+                                <div class="col-4">
+                                    COMENTARIO 2
+                                </div>
+                                <div class="col-4">
+                                    COMENTARIO 3
+                                </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <h1>Quiénes somos</h1>
-                                <br><br>
-                             <!--   <p class="card-text" th:text="  ${usuario.descripcion} "></p> -->
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <!--El usuario da opinion-->
+                            <br><br>
+                            <div class="card">
+                                <div class="card-title">
+                                    <h1>Tu opinión</h1>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <input type="text" name="comentario" class="form-control"
+                                               id="InputComentario"
+                                               placeholder="Su comentario" th:value="*{comentario}" required>
+                                        <!-- VER CON FACU -->
+                                        <p class="alert-logeado">Debe estar logueado
+                                            </p>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="rating">
+                                            <input type="radio" name="rating" value="5" id="5"><label
+                                                for="5">☆</label>
+                                            <input type="radio" name="rating" value="4" id="4"><label
+                                                for="4">☆</label>
+                                            <input type="radio" name="rating" value="3" id="3"><label
+                                                for="3">☆</label>
+                                            <input type="radio" name="rating" value="2" id="2"><label
+                                                for="2">☆</label>
+                                            <input type="radio" name="rating" value="1" id="1"><label
+                                                for="1">☆</label>
+                                        </div>
+                                    </li>
+                                    <div class="card-body">
+                                        <button type="reset"
+                                                class="btn btn-success btn-lg mt-1 mx-2">
+                                            <b>¡Valorar!</b>
+                                        </button>
+                                    </div>
+
+                                </ul>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!--            <div class="imagen">-->
-            <!--                <br><br><br><br>-->
-            <!--                <img src="../static/images/signup.svg" th:src="@{/images/signup.svg}" class="img-responsive" height="450">-->
-            <!--            </div>-->
-
         </div>
     </div>
+</div>
 
 </div>
 
-
-
 <br><br><br><br><br><br><br><br>
 
-
-
 <footer th:replace="layout/layout :: footer"></footer>
-
-
 
 </body>
 
