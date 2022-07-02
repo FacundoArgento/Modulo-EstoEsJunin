@@ -7,6 +7,7 @@ import unnoba.edu.ar.gestion2022.tpi.modulo.model.User;
 import unnoba.edu.ar.gestion2022.tpi.modulo.repository.UserRepository;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.NoSuchElementException;
 
 @Service
@@ -57,20 +58,44 @@ public class UserService {
         return userRepository.findUserIDByUsername(username);
     }
 
-    public List<User> listadoPlomeros(){
-        String rubro ="Plomero";
+    public List<User> listadoPlomeros() {
+        String rubro = "Plomero";
         return userRepository.listaPlomeros(rubro);
     }
 
-    public List<User> listadoGasistas(){
-        return userRepository.listaGasista();
+    public List<User> listadoPlomeros(String palabraClave) {
+        String rubro = "Plomero";
+        return userRepository.listaPlomeros(rubro, palabraClave.toLowerCase());
+    }
+
+    public List<User> listadoGasistas() {
+        String rubro ="Gasista";
+        return userRepository.listaGasista(rubro);
+    }
+
+    public List<User> listadoGasistas(String palabraClave){
+        String rubro ="Gasista";
+        return userRepository.listaGasista(rubro, palabraClave.toLowerCase());
+    }
+
+
+    public List<User> listadoAlbaniles(String palabraClave){
+        String rubro ="Albañil";
+        return userRepository.listaAlbanil(rubro, palabraClave.toLowerCase());
     }
 
     public List<User> listadoAlbaniles(){
-        return userRepository.listaAlbanil();
+        String rubro ="Albañil";
+        return userRepository.listaAlbanil(rubro);
     }
     public List<User> listadoElectricistas(){
-        return userRepository.listaElectricista();
+        String rubro ="Electricista";
+        return userRepository.listaElectricista(rubro);
+    }
+
+    public List<User> listadoElectricistas(String palabraClave){
+        String rubro ="Electricista";
+        return userRepository.listaElectricista(rubro, palabraClave.toLowerCase());
     }
 
     public User findId(Long id){

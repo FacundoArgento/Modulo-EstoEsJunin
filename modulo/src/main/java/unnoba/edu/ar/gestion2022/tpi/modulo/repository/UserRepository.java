@@ -17,12 +17,31 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.rubro= ?1")
     public List<User> listaPlomeros(String rubro);
 
-    @Query("SELECT u FROM User u WHERE u.rubro= 'Albañil'")
-    public List<User> listaAlbanil();
-    @Query("SELECT u FROM User u WHERE u.rubro= 'Electricista'")
-    public List<User> listaElectricista();
-    @Query("SELECT u FROM User u WHERE u.rubro= 'Gasista'")
-    public List<User> listaGasista();
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1 AND (lower(u.nombre) LIKE %?2%"
+            + "OR lower(u.apellido) LIKE %?2%)")
+    public List<User> listaPlomeros(String rubro, String palabraClave);
+
+
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1")
+    public List<User> listaAlbanil(String rubro);
+
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1 AND (lower(u.nombre) LIKE %?2%"
+            + "OR lower(u.apellido) LIKE %?2%)")
+    public List<User> listaAlbanil(String rubro, String palabraClave);
+
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1")
+    public List<User> listaElectricista(String rubro);
+
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1 AND (lower(u.nombre) LIKE %?2%"
+            + "OR lower(u.apellido) LIKE %?2%)")
+    public List<User> listaElectricista(String rubro, String palabraClave);
+
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1")
+    public List<User> listaGasista(String rubro);
+    @Query("SELECT u FROM User u WHERE u.rubro= ?1 AND (lower(u.nombre) LIKE %?2%"
+            + "OR lower(u.apellido) LIKE %?2%)")
+    public List<User> listaGasista(String rubro, String palabraClave);
+
     @Query("SELECT u FROM User u WHERE u.id=?1  ")
     public User findId(Long id);
 
