@@ -32,10 +32,12 @@ public class SeccionController {
         Reseña reseña = new Reseña();
         User user =userSer.findId(id);
         List<Reseña>reseñas = reseñaService.getReseñasPorUser(user.getId());
+        Double promedio = reseñaService.promedios(reseñas);
         model.addAttribute("titulo", user.getNombre()+" "+user.getApellido()  );
         model.addAttribute("usuario",user);
         model.addAttribute("resenia", reseña);
         model.addAttribute("listado",reseñas);
+        model.addAttribute("promedio",promedio);
         return "seccion";
     }
 

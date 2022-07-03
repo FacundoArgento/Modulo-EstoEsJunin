@@ -26,6 +26,14 @@ public class ReseñaService implements ReseñaServiceImp {
      public List<Reseña> getReseñasPorUser(Long id) {
          return reseñaRepository.getReseñasByUserID(id);
      }
+     public Double promedios(List<Reseña> list){
+        Double promedio = 0D;
+        for (Reseña index:list) {
+                promedio+= index.getValoracion();
+         }
+         promedio=promedio/list.size();
+        return promedio;
+     }
 
 
 

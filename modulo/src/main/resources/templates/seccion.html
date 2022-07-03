@@ -180,15 +180,15 @@
                                         </li>
                                         <li class="list-group-item">
                                             <div class="rating">
-                                                <input type="radio" name="valoracion" value="5" id="5" th:value="*{valoracion}"><label
+                                                <input type="radio" name="valoracion" value="5" id="5" th:field="*{valoracion}"><label
                                                     for="5">☆</label>
-                                                <input type="radio" name="valoracion" value="4" id="4"  th:value="*{valoracion}"><label
+                                                <input type="radio" name="valoracion" value="4" id="4"  th:field="*{valoracion}"><label
                                                     for="4">☆</label>
-                                                <input type="radio" name="valoracion" value="3" id="3"  th:value="*{valoracion}"><label
+                                                <input type="radio" name="valoracion" value="3" id="3"  th:field="*{valoracion}"><label
                                                     for="3">☆</label>
-                                                <input type="radio" name="valoracion" value="2" id="2" th:value="*{valoracion}"><label
+                                                <input type="radio" name="valoracion" value="2" id="2" th:field="*{valoracion}"><label
                                                     for="2">☆</label>
-                                                <input type="radio" name="valoracion" value="1" id="1"  th:value="*{valoracion}"><label
+                                                <input type="radio" name="valoracion" value="1" id="1"  th:field="*{valoracion}"><label
                                                     for="1">☆</label>
                                             </div>
                                         </li>
@@ -210,6 +210,7 @@
 
                     <div class="col-4 card" >
                         <h1>Puntuación</h1>
+                        <h1 th:text="${promedio}"></h1>
                         <br>
 
                         <div class="container">
