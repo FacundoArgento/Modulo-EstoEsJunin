@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import unnoba.edu.ar.gestion2022.tpi.modulo.model.User;
 import unnoba.edu.ar.gestion2022.tpi.modulo.repository.UserRepository;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -60,46 +62,69 @@ public class UserService {
 
     public List<User> listadoPlomeros() {
         String rubro = "Plomero";
-        return userRepository.listaPlomeros(rubro);
+        List<User> list =userRepository.listaPlomeros(rubro);
+        list= ordenar(list);
+        return list;
     }
 
     public List<User> listadoPlomeros(String palabraClave) {
         String rubro = "Plomero";
-        return userRepository.listaPlomeros(rubro, palabraClave.toLowerCase());
+        List<User> list =userRepository.listaPlomeros(rubro, palabraClave.toLowerCase());
+        list= ordenar(list);
+        return list;
     }
 
     public List<User> listadoGasistas() {
         String rubro ="Gasista";
-        return userRepository.listaGasista(rubro);
+        List<User> list =userRepository.listaGasista(rubro);
+        list= ordenar(list);
+        return list;
     }
 
     public List<User> listadoGasistas(String palabraClave){
         String rubro ="Gasista";
-        return userRepository.listaGasista(rubro, palabraClave.toLowerCase());
+        List<User> list =userRepository.listaGasista(rubro,palabraClave.toLowerCase());
+        list= ordenar(list);
+        return list;
     }
 
 
     public List<User> listadoAlbaniles(String palabraClave){
         String rubro ="Albañil";
-        return userRepository.listaAlbanil(rubro, palabraClave.toLowerCase());
+        List<User> list =userRepository.listaAlbanil(rubro,palabraClave.toLowerCase());
+        list= ordenar(list);
+        return list;
     }
 
     public List<User> listadoAlbaniles(){
         String rubro ="Albañil";
-        return userRepository.listaAlbanil(rubro);
+        List<User> list =userRepository.listaAlbanil(rubro);
+        list= ordenar(list);
+        return list;
     }
     public List<User> listadoElectricistas(){
         String rubro ="Electricista";
-        return userRepository.listaElectricista(rubro);
+        List<User> list =userRepository.listaElectricista(rubro);
+        list= ordenar(list);
+        return list;
     }
 
     public List<User> listadoElectricistas(String palabraClave){
         String rubro ="Electricista";
-        return userRepository.listaElectricista(rubro, palabraClave.toLowerCase());
+        List<User> list =userRepository.listaElectricista(rubro,palabraClave.toLowerCase());
+        list= ordenar(list);
+        return list;
     }
 
     public User findId(Long id){
         return userRepository.findId(id);
     }
 
+
+    public List<User> ordenar(List<User> list){
+        List<User> lista =list.stream()
+                .sorted(Comparator.comparing(User::getNombre))
+                .collect(Collectors.toList());
+        return lista;
+    }
 }
