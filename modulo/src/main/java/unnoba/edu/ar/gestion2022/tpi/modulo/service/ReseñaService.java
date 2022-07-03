@@ -32,6 +32,7 @@ public class ReseñaService implements ReseñaServiceImp {
                 promedio+= index.getValoracion();
          }
          promedio=promedio/list.size();
+        promedio=Math.round(promedio*100)/100d;
         return promedio;
      }
 
