@@ -25,57 +25,51 @@ import unnoba.edu.ar.gestion2022.tpi.modulo.service.UserService;
 @RequestMapping("/reseñas")
 public class ReseñaController {
 
-    private SeccionService seccionService;  // A IMPLEMENTAR
-    private ReseñaService reseñaService;
-    private static ModelMapper modelMapper;
+   // private SeccionService seccionService;  // A IMPLEMENTAR
+    //private ReseñaService reseñaService;
+    //private static ModelMapper modelMapper;
 
     
-    public ReseñaController(SeccionService seccionService, ReseñaService reseñaService) {
-        this.seccionService = seccionService;
-        this.reseñaService = reseñaService;
-    }
+    //public ReseñaController(SeccionService seccionService, ReseñaService reseñaService) {
+      //  this.seccionService = seccionService;
+        //this.reseñaService = reseñaService;
+    //}
 
     // mostrar reseñas en la pagina
-    @PostMapping("/show")
-    public String mostrarReseñas(Model model){
-        List<Reseña> reseñas= new ArrayList<>();
+   // @PostMapping("/show")
+    //public String mostrarReseñas(Model model){
+      //  List<Reseña> reseñas= new ArrayList<>();
 	    // reseñas = reseñaService.getReseñasPorSeccion();     // FALTARIA MODELAR SECCION PARA COMPLETAR.. y pasar el id
 		
-		List<ReseñaDTO> reseñasDTO = reseñas.stream()
-                .map(reseña -> modelMapper.map(reseña, ReseñaDTO.class))
-				.collect(Collectors.toList());
+//		List<ReseñaDTO> reseñasDTO = reseñas.stream()
+  //              .map(reseña -> modelMapper.map(reseña, ReseñaDTO.class))
+	//			.collect(Collectors.toList());
 		
-		model.addAttribute("reseñas", reseñasDTO);
-		model.addAttribute("nuevaReseña", new NuevaReseñaDTO());
-		return "bookings/availability";
-    }
+	//	model.addAttribute("reseñas", reseñasDTO);
+	//	model.addAttribute("nuevaReseña", new NuevaReseñaDTO());
+	//	return "bookings/availability";
+    //}
 
     // crear reseña
-    @PostMapping("/crearReseña")
-	public String crearReseña(@ModelAttribute NuevaReseñaDTO reseñaDTO, Authentication authentication, Model model) {
+    //@PostMapping("/crearReseña")
+	//public String crearReseña(@ModelAttribute NuevaReseñaDTO reseñaDTO, Authentication authentication, Model model) {
 		
-        Reseña reseña = modelMapper.map(reseñaDTO, Reseña.class);
+      //  Reseña reseña = modelMapper.map(reseñaDTO, Reseña.class);
 		
         // ver que sucede con el ID
 
-        reseña.setUsuario((User)authentication.getPrincipal());
-		try {
+        //reseña.setUsuario((User)authentication.getPrincipal());
+		//try {
 			
-			reseñaService.guardarReseña(reseña);
-			return "?";
+	//		reseñaService.guardarReseña(reseña);
+	//		return "?";
 		
-		} catch (Exception e) {
-			System.out.println("No se pudo realizar la reseña.");
-			return "?";
-		}
+	////		System.out.println("No se pudo realizar la reseña.");
+		//	return "?";
+		//}
 		
-	}
-    // eliminar reseña
-    @PostMapping("/eliminarReseña")
-    public String eliminarReseña(@ModelAttribute ReseñaDTO reseñaDTO, Model model){
-        reseñaService.eliminarReseñaPorId(reseñaDTO.getId());
-        return "?"
+	///   return "?"
 ;    }
     
     
-}
+//}

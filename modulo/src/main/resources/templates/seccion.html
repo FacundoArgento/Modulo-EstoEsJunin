@@ -8,9 +8,9 @@
     }
 
     .card {
-        /*width: 350px;*/
+        /width: 350px;/
         border: none;
-        /*box-shadow: 5px 6px 6px 2px #e9ecef;*/
+        /box-shadow: 5px 6px 6px 2px #e9ecef;/
         border-radius: 12px;
     }
 
@@ -145,7 +145,8 @@
         <div class="content-left text-center ms-4">
             <div class="container my-4">
                 <div class="row">
-                    <div class="col-6">
+
+                    <div class="col-4">
                         <div class="row">
                             <h1>Información</h1>
                             <br><br>
@@ -153,62 +154,75 @@
                             <p class="card-text" th:text="'Dirección: '+ ${usuario.direccion} "></p>
                             <!--  <p class="card-text" th:text="'Horarios: '+ ${usuario.horarios} "></p> -->
 
-                            <h1>Reseñas</h1>
+                            <h1>Sobre nosotros</h1>
                             <br><br>
                             <div class="row">
-                                <div class="col-4">
-                                    COMENTARIO 1
-                                </div>
-                                <div class="col-4">
-                                    COMENTARIO 2
-                                </div>
-                                <div class="col-4">
-                                    COMENTARIO 3
-                                </div>
+                                <p class="card-text"> descripcion</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+
+                    <div class="col-4">
                         <div class="row">
+
                             <!--El usuario da opinion-->
                             <br><br>
-                            <div class="card">
-                                <div class="card-title">
-                                    <h1>Tu opinión</h1>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <input type="text" name="comentario" class="form-control"
-                                               id="InputComentario"
-                                               placeholder="Su comentario" th:value="*{comentario}" required>
-                                        <!-- VER CON FACU -->
-                                        <p class="alert-logeado">Debe estar logueado
-                                            </p>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="rating">
-                                            <input type="radio" name="rating" value="5" id="5"><label
-                                                for="5">☆</label>
-                                            <input type="radio" name="rating" value="4" id="4"><label
-                                                for="4">☆</label>
-                                            <input type="radio" name="rating" value="3" id="3"><label
-                                                for="3">☆</label>
-                                            <input type="radio" name="rating" value="2" id="2"><label
-                                                for="2">☆</label>
-                                            <input type="radio" name="rating" value="1" id="1"><label
-                                                for="1">☆</label>
-                                        </div>
-                                    </li>
-                                    <div class="card-body">
-                                        <button type="reset"
-                                                class="btn btn-success btn-lg mt-1 mx-2">
-                                            <b>¡Valorar!</b>
-                                        </button>
+                            <form class="form-group" action="#" th:action="@{/seccion/__${usuario.id}__}" th:object="${resenia}" method="post">
+                                <div class="card">
+                                    <div class="card-title">
+                                        <h1>Tu opinión</h1>
                                     </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                        <textarea name="texto" class="form-control"
+                                                  id="InputComentario"
+                                                  placeholder="Escriba su comentario" th:value="*{texto}" required></textarea>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="rating">
+                                                <input type="radio" name="valoracion" value="5" id="5" th:value="*{valoracion}"><label
+                                                    for="5">☆</label>
+                                                <input type="radio" name="valoracion" value="4" id="4"  th:value="*{valoracion}"><label
+                                                    for="4">☆</label>
+                                                <input type="radio" name="valoracion" value="3" id="3"  th:value="*{valoracion}"><label
+                                                    for="3">☆</label>
+                                                <input type="radio" name="valoracion" value="2" id="2" th:value="*{valoracion}"><label
+                                                    for="2">☆</label>
+                                                <input type="radio" name="valoracion" value="1" id="1"  th:value="*{valoracion}"><label
+                                                    for="1">☆</label>
+                                            </div>
+                                        </li>
+                                        <div class="card-body">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg mt-1 mx-2">
+                                                <b>¡Valorar!</b>
+                                            </button>
+                                        </div>
 
-                                </ul>
+                                    </ul>
 
-                            </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-4 card" >
+                        <h1>Puntuación</h1>
+                        <br>
+
+                        <div class="container">
+                            <h1>Reseñas</h1>
+                            <h5 th:if="${listado.isEmpty()}" style="color: #797D7F ">No hay reseñas registradas.</h5>
+                                <div th:each="resenia: ${listado}" style="border:0.5px solid gray; border-radius:10px; width:100%; margin:5px" >
+                                        <div>
+                                                <h6 class="mb-0" th:text="${resenia.texto}"></h6>
+                                                <h6 class="mb-0" th:text="${resenia.valoracion}"></h6>
+                                        </div>
+
+                                </div>
+
                         </div>
                     </div>
                 </div>

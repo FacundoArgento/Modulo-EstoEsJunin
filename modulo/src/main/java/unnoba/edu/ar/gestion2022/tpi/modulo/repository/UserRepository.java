@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import unnoba.edu.ar.gestion2022.tpi.modulo.model.User;
 
 import java.util.List;
-
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.username = :username")
@@ -44,5 +43,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.id=?1  ")
     public User findId(Long id);
-
 }
