@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Esto Es GdP - Oops!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+    </style>
+</head>
+
+<body class="bg-image img-fluid" style="background-image: url(../static/images/bg.png);" th:style="'background-image:url(' + @{/images/bg.png} + ');'">
+
+    <header></header>
+
+    <div>
+
+        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-default p-md-3 bg-transparent ">
+            <div class="container-fluid ">
+                <a class="navbar-brand "><img src="../static/images/logo2.png" th:src="@{/images/logo2.png}" class="img-responsive " height="110 "></a>
+                <span class="name m-lg-4 fs-2 align-middle text-black"><b>Error</b></span>
+                <div class="mx-auto "></div>
+                <ul class="navbar-nav ">
+                    <li sec:authorize="isAnonymous()" class="nav-item">
+                        <a href="/index" th:href="@{/index}" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button"><b>Volver a la página principal</b></a>
+                    </li>
+                    <!--
+                    <li sec:authorize="isAnonymous()" class="nav-item">
+                        <form th:action="@{/login}" method="GET" name="loginForm" id="login">
+                            <button type="submit" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" value="Sign In "><b>Iniciar sesión</b></button>
+                        </form>
+                    </li>
+                    <li sec:authorize="isAnonymous()" class="nav-item ">
+                        <a href="/users/new" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button "><b>Registro</b></a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item ">
+                        <a href="/home" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button"><b>Home</b></a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item ">
+                        <a href="/listado" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button"><b>Listado de profesionales</b></a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item ">
+                        <a href="/logout" class="nav-link btn btn-outline-warning btn-lg align-middle me-5 text-white" role="button "><b>Cerrar sesión</b></a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </nav>
+
+        <br><br><br>
+
+        <div class="container-fluid">
+            <div class="d-sm-flex justify-content-around content">
+
+                <div class="ms-5 mt-4 content-left text-center">
+                    <br><br><br><br><br>
+                    <h1><b>Upa!</b></h1>
+                    <h2>Ocurrio un error.</h2>
+                    <br>
+                    <h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
+                    <p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
+                </div>
+
+                <div class="imagen">
+                    <br>
+                    <img src="../static/images/error.svg" th:src="@{/images/error.svg}" class="ms-5 img-responsive" height="450">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-bottom text-end me-1 text-white">Facundo Argento - Abril Carini - Martín Fargnoli - Nicolás Di Pierro</div>
+    <div class="fixed-bottom text-start ms-1 text-white">UNNOBA 2022 - Gestión de Proyectos</div>
+
+    <!-- Bundle de dependencias de Bootstrap (por las dudas). -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

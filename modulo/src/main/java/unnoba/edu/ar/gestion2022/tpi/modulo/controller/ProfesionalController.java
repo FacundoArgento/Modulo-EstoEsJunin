@@ -38,9 +38,6 @@ public class ProfesionalController {
             model.addAttribute("titulo", "Listado de plomeros");
             return "plomeros";
         }
-
-
-
     }
 
     @RequestMapping(value={"/gasistas", "/gasistas/{param}"}, method=RequestMethod.GET)
