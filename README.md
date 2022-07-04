@@ -3,10 +3,7 @@ Aplicación web de un modulo de reseñas para una guía, desarrollado en Spring 
 
 ## Integrantes
 
-Facundo Argento
-Abril Carini
-Nicolas Di Pierro
-Martín Fargnoli
+Facundo Argento, Abril Carini, Nicolas Di Pierro, Martín Fargnoli.
 
 ## Realizado hasta ahora
 
