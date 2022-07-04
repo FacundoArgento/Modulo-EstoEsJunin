@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+
+    <header th:replace="layout/layout :: header"></header>
+    <br><br>
+
+    <br><br><br><br>
+
+    <div class="container-fluid ">
+        <div class="d-sm-flex justify-content-around content ">
+            <div class="content-left text-center ms-5 ">
+                <br><br><br><br><br>
+                <h1 class="text-blue "><b>Bienvenid@!</b></h1>
+                <p class="fs-3" th:text="${#authentication.name}">Usuario</p>
+                <br>
+                <div class="d-grid gap-1 col-12 mx-auto ">
+                    <a th:href="@{/listado}" class="btn btn-warning btn-lg my-3 text-white" role="button" aria-disabled="false"><b>Consultar el listado</b></a>
+                    <!--
+                    <li sec:authorize="isAuthenticated()" class="nav-item">
+                        <form th:action="@{/seccion-form}" method="GET" name="seccionForm" id="seccion-form">
+                            <a href="/seccion/new" class="btn btn-warning btn-lg my-3 text-white" role="button" aria-disabled="false"><b>Crear sección</b></a>
+                        </form>
+                    </li>
+                    -->
+                </div>
+            </div>
+
+            <div class="imagen ">
+                <br>
+                <img src="../static/images/home.svg " th:src="@{/images/home.svg} " class="img-responsive " height="400 ">
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <footer th:replace="layout/layout :: footer"></footer>
+</body>
+
+</html>

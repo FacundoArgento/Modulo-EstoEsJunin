@@ -35,6 +35,12 @@ public class User implements UserDetails {
     private String telefono;
     @Column(name = "direccion")
     private String direccion;
+    @Column(name = "horarios")
+    private String horarios;
+    @Column(name = "descripcion")
+    private String descripcion;
+    @Column(name = "redes_sociales")
+    private String redes_sociales;
     @Column(name = "rubro")
     private String rubro;
     @Column(name = "role")
@@ -44,7 +50,8 @@ public class User implements UserDetails {
 
     }
 
-    public User( String apellido, String nombre, String email, String username, String password, String telefono, String direccion, String rubro, String role) {
+    public User(long id, String nombre, String apellido, String email, String username, String password, String telefono, String direccion, String horarios, String descripcion, String redes_sociales, String rubro, String role) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -52,6 +59,9 @@ public class User implements UserDetails {
         this.password = password;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.horarios = horarios;
+        this.descripcion = descripcion;
+        this.redes_sociales = redes_sociales;
         this.rubro = rubro;
         this.role = role;
     }
@@ -88,12 +98,21 @@ public class User implements UserDetails {
         this.email = email;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getDireccion() {
@@ -104,12 +123,28 @@ public class User implements UserDetails {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getHorarios() {
+        return horarios;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setHorarios(String horarios) {
+        this.horarios = horarios;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getRedes_sociales() {
+        return redes_sociales;
+    }
+
+    public void setRedes_sociales(String redes_sociales) {
+        this.redes_sociales = redes_sociales;
     }
 
     public String getRubro() {

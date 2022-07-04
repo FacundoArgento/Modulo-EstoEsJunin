@@ -120,11 +120,11 @@ public class UserService {
         return userRepository.findId(id);
     }
 
-
     public List<User> ordenar(List<User> list){
         List<User> lista =list.stream()
                 .sorted(Comparator.comparing(User::getNombre))
                 .collect(Collectors.toList());
         return lista;
     }
+
 }

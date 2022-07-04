@@ -10,4 +10,5 @@ public interface ReseñaServiceImp {
     // public List<Reseña> getReseñasPorSeccion();
 
     public void eliminarReseñaPorId(Long id);
+
 }   

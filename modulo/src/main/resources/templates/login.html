@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="layout/layout :: head"></head>
+
 <body>
 
-<header th:replace="layout/layout :: header"></header>
-<br>
+    <header th:replace="layout/layout :: header"></header>
+    <br>
 
 
-<div class="container-fluid">
-            <div class="d-sm-flex justify-content-around content">
-                <div class="ms-5 mt-4 content-left text-center">
+    <div class="container-fluid">
+        <div class="d-sm-flex justify-content-around content">
+            <div class="ms-5 mt-4 content-left text-center">
 
-                    <br><br>
+                <br><br><br><br><br>
 
-                    <h3><b>Inicio de sesión</b></h3>
-                    <h4>Por favor, ingrese su nombre <br> y contraseña.</h4>
+                <h3><b>Inicio de sesión</b></h3>
+                <h4>Por favor, ingrese su nombre <br> y contraseña.</h4>
 
-                    <br>
+                <br>
 
-                    <div th:if="${loginError}" class="alert alert-danger align-middle text-center" role="alert">
-                        <b>Usuario o contraseña incorrecto.</b>
+                <div th:if="${loginError}" class="alert alert-danger align-middle text-center" role="alert">
+                    <b>Usuario o contraseña incorrecto.</b>
+                </div>
+
+                <form th:action="@{/login}" method="post">
+                    <div class="form-floating mb-3 col-12">
+                        <input type="text" name="username" class="form-control" id="InputUsername" placeholder="Ingrese su nombre de usuario" th:value="*{username}" required>
+                        <label for="InputUsername">Nombre de usuario</label>
                     </div>
-
-                    <form th:action="@{/login}" method="post">
-                        <div class="form-floating mb-3 col-12">
-                            <input type="text" name="username" class="form-control" id="InputUsername" placeholder="Ingrese su nombre de usuario" th:value="*{username}" required>
-                            <label for="InputUsername">Nombre de usuario</label>
-                        </div>
-                        <div class="form-floating mb-3 col-12">
-                            <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Ingrese su contraseña" th:value="*{password}" required>
-                            <label for="InputPassword">Contraseña</label>
-                        </div>
-                        <button type="submit" class="btn btn-warning btn-lg mt-2 text-white"><b>Iniciar sesión</b></button>
-                    </form>
-
-                </div>
-
-                <div class="imagen">
-                    <img src="../static/images/login.svg" th:src="@{/images/login.svg}" class="img-responsive" height="450">
-                </div>
+                    <div class="form-floating mb-3 col-12">
+                        <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Ingrese su contraseña" th:value="*{password}" required>
+                        <label for="InputPassword">Contraseña</label>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-lg mt-2 text-white"><b>Iniciar sesión</b></button>
+                </form>
 
             </div>
+
+            <div class="imagen">
+                <br><br><br>
+                <img src="../static/images/login.svg" th:src="@{/images/login.svg}" class="img-responsive" height="450">
+            </div>
+
         </div>
+    </div>
 
     </div>
 
-<br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
 
-<footer th:replace="layout/layout :: footer"></footer>
+    <footer th:replace="layout/layout :: footer"></footer>
 </body>
 
 </html>

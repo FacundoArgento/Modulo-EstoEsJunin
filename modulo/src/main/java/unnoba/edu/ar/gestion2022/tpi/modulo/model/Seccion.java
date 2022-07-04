@@ -21,39 +21,35 @@ public class Seccion {
     @Column(name = "seccion_id")
     private long id;
 
-    @Column(name = "nombre")
-	private String nombre;
-	
-	@Column(name = "pagina_web")
-	private String pagina_web;
+    @Column(name = "razon_social")
+	private String razon_social;
 	
 	@Column(name = "redes_sociales")
 	private String redes_sociales;
+
+    @Column(name = "horarios")
+    private String horarios;
 	
 	@Column(name = "descripcion")
 	private String descripcion;
 
-    @Column(name= "foto")
-    private File foto;
-
     @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name= "profesional_id")
-    private Profesional profesional;
+    @JoinColumn(name="usuario_id")
+    private User user;
 
     public Seccion() {
+
     }
 
-    public Seccion(long id, String nombre, String pagina_web, String redes_sociales, String descripcion, File foto, Profesional profesional) {
+    public Seccion(long id, String razon_social, String redes_sociales, String horarios, String descripcion, User user) {
         this.id = id;
-        this.nombre = nombre;
-        this.pagina_web = pagina_web;
+        this.razon_social = razon_social;
         this.redes_sociales = redes_sociales;
+        this.horarios = horarios;
         this.descripcion = descripcion;
-        this.foto = foto;
-        this.profesional = profesional;
+        this.user = user;
     }
 
-    //getters y setters
     public long getId() {
         return id;
     }
@@ -62,20 +58,12 @@ public class Seccion {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getRazon_social() {
+        return razon_social;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPagina_web() {
-        return pagina_web;
-    }
-
-    public void setPagina_web(String pagina_web) {
-        this.pagina_web = pagina_web;
+    public void setRazon_social(String razon_social) {
+        this.razon_social = razon_social;
     }
 
     public String getRedes_sociales() {
@@ -86,6 +74,14 @@ public class Seccion {
         this.redes_sociales = redes_sociales;
     }
 
+    public String getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(String horarios) {
+        this.horarios = horarios;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -94,20 +90,12 @@ public class Seccion {
         this.descripcion = descripcion;
     }
 
-    public File getFoto() {
-        return foto;
+    public User getUser() {
+        return user;
     }
 
-    public void setFoto(File foto) {
-        this.foto = foto;
-    }
-
-    public Profesional getId_profesional() {
-        return profesional;
-    }
-
-    public void setId_profesional(Profesional profesional) {
-        this.profesional = profesional;
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

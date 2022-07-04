@@ -1,101 +1,120 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="layout/layout :: head"></head>
+
 <body>
 
-<header th:replace="layout/layout :: header"></header>
-<br>
+    <header th:replace="layout/layout :: header"></header>
+    <br>
 
 
-<div class="container-fluid">
-            <div class="d-sm-flex justify-content-around content">
-                <div class="content-left text-center ms-4">
+    <div class="container-fluid">
+        <div class="d-sm-flex justify-content-around content">
+            <div class="content-left text-center ms-4">
 
 
-                    <h3><b>Formulario de registro</b></h3>
-                    <h4>Por favor, ingrese sus datos.</h4>
+                <h3><b>Formulario de registro</b></h3>
+                <h4>Por favor, ingrese sus datos.</h4>
 
-                    <div class="container my-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <form class="form-group" action="#" th:action="@{/users/new}" th:object="${User}" method="post">
-                                    <div class="row">
-                                        <div class="form-floating my-1 col-6">
-                                            <input type="text" name="nombre" class="form-control" id="InputNombre" placeholder="Ingrese su nombre" th:value="*{nombre}" required>
-                                            <label for="InputNombre">Nombre</label>
-                                        </div>
-                                        <div class="form-floating my-1 col-6">
-                                            <input type="text" name="apellido" class="form-control" id="InputApellido" placeholder="Ingrese su apellido" th:value="*{apellido}" required>
-                                            <label for="InputApellido">Apellido</label>
-                                        </div>
+                <div class="container my-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="form-group" action="#" th:action="@{/users/new}" th:object="${User}" method="post">
+                                <div class="row">
+                                    <div class="form-floating my-1 col-6">
+                                        <input type="text" name="nombre" class="form-control" id="InputNombre" placeholder="Ingrese su nombre" th:value="*{nombre}" required>
+                                        <label for="InputNombre">Nombre</label>
                                     </div>
-                                    <div class="form-floating mt-2 mb-2">
-                                        <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Ingrese su correo electrónico" th:value="*{email}" required>
-                                        <label for="InputEmail">Correo electrónico</label>
-                                        <small id="emailHelp" class="form-text text-muted">No compartiremos su correo electrónico con nadie.</small>
+                                    <div class="form-floating my-1 col-6">
+                                        <input type="text" name="apellido" class="form-control" id="InputApellido" placeholder="Ingrese su apellido" th:value="*{apellido}" required>
+                                        <label for="InputApellido">Apellido</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-floating mb-1 col-6">
-                                            <input type="text" name="username" class="form-control" id="InputUsername" placeholder="Ingrese su nombre de usuario" th:value="*{username}" required>
-                                            <label for="InputUsername">Nombre de usuario</label>
-                                        </div>
-                                        <div class="form-floating mb-1 col-6">
-                                            <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Ingrese su contraseña" th:value="*{password}" required>
-                                            <label for="InputPassword">Contraseña</label>
-                                        </div>
+                                </div>
+                                <div class="form-floating mt-2 mb-2">
+                                    <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Ingrese su correo electrónico" th:value="*{email}" required>
+                                    <label for="InputEmail">Correo electrónico</label>
+                                    <small id="emailHelp" class="form-text text-muted">No compartiremos su correo electrónico con nadie.</small>
+                                </div>
+                                <div class="row">
+                                    <div class="form-floating mb-1 col-6">
+                                        <input type="text" name="username" class="form-control" id="InputUsername" placeholder="Ingrese su nombre de usuario" th:value="*{username}" required>
+                                        <label for="InputUsername">Nombre de usuario</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-floating mb-0 col-6">
-                                            <input type="text" name="telefono" class="form-control" id="InputTelefono" placeholder="Ingrese su teléfono" th:value="*{telefono}" required>
-                                            <label for="InputDireccion">Teléfono</label>
-                                        </div>
-                                        <div class="form-floating mb-0 col-6">
-                                            <input type="text" name="direccion" class="form-control" id="InputDireccion" placeholder="Ingrese su direccion" th:value="*{direccion}" required>
-                                            <label for="InputDireccion">Dirección</label>
-                                        </div>
-                                        <small id="telefonoHelp" class="form-text text-muted">Ingrese un número de teléfono que utilice WhatsApp.</small>
+                                    <div class="form-floating mb-1 col-6">
+                                        <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Ingrese su contraseña" th:value="*{password}" required>
+                                        <label for="InputPassword">Contraseña</label>
                                     </div>
-                                    <div class="row">
-                                        <!--
+                                </div>
+                                <div class="row">
+                                    <!--
                                         <div class="form-floating mt-2 mb-3 col-6">
                                             <input type="..." name="..." class="form-control" id="Input..." placeholder="Ingrese su ..." th:value="*{...}" required>
                                             <label for="...">...</label>
                                         </div>
                                         -->
-                                        <div class="form-floating mt-2 mb-3">
-                                            <select id="InputRubro" name="rubro" class="form-select" th:value="*{rubro}" required>
+                                    <div class="form-floating mt-2 mb-3">
+                                        <select id="InputRubro" name="rubro" class="form-select" th:value="*{rubro}" required>
                                                     <option selected disabled>Seleccione su rubro</option>
                                                     <option>Albañil</option>
                                                     <option>Electricista</option>
                                                     <option>Gasista</option>
                                                     <option>Plomero</option>
                                                 </select>
-                                            <label for="InputRubro">Rubro</label>
-                                        </div>
+                                        <label for="InputRubro">Rubro</label>
                                     </div>
-                                    <div class="mb-2 checkbox">
-                                        <input type="checkbox" class="form-check-input" id="Check1" required>
-                                        <label class="form-check-label" for="Check1">Acepto los términos y condiciones.</label>
+                                </div>
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-6">
+                                        <input type="text" name="telefono" class="form-control" id="InputTelefono" placeholder="Ingrese su teléfono" th:value="*{telefono}" required>
+                                        <label for="InputDireccion">Teléfono</label>
+                                        <small id="telefonoHelp" class="form-text text-muted">Ingrese su número de WhatsApp.</small>
                                     </div>
-                                    <button type="submit" class="btn btn-warning btn-lg mt-1 mx-3 text-white"><b>Registrarse</b></button>
-                                    <button type="reset" class="btn btn-secondary btn-lg mt-1 mx-2"><b>Reestablecer campos</b></button>
-                                </form>
-                            </div>
+                                    <div class="form-floating mb-2 col-6">
+                                        <input type="text" name="direccion" class="form-control" id="InputDireccion" placeholder="Ingrese su direccion" th:value="*{direccion}" required>
+                                        <label for="InputDireccion">Dirección</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-6">
+                                        <input type="text" name="redes_sociales" class="form-control" id="InputRedesSociales" placeholder="Ingrese su red social" th:value="*{redes_sociales}" required>
+                                        <label for="InputRedesSociales">Red social</label>
+                                        <small id="redes_socialesHelp" class="form-text text-muted">Ingrese su Facebook o Instagram.</small>
+                                    </div>
+                                    <div class="form-floating mb-2 col-6">
+                                        <input type="text" name="horarios" class="form-control" id="InputHorarios" placeholder="Ingrese sus horarios" th:value="*{horarios}" required>
+                                        <label for="InputHorarios">Horarios</label>
+                                    </div>
+                                </div>
+                                <div class="ro2">
+                                    <div class="form-floating mb-2">
+                                        <textarea name="descripcion" class="form-control" id="InputDescripcion" placeholder="Ingrese una descripción" th:value="*{descripcion}" required></textarea>
+                                        <label for="InputDescripcion">Descripción</label>
+                                    </div>
+                                </div>
+                                <div class="mb-2 checkbox">
+                                    <input type="checkbox" class="form-check-input" id="Check1" required>
+                                    <label class="form-check-label" for="Check1">Acepto los términos y condiciones.</label>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-lg mt-1 mx-3 text-white"><b>Registrarse</b></button>
+                                <button type="reset" class="btn btn-secondary btn-lg mt-1 mx-2"><b>Reestablecer campos</b></button>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                <div class="imagen">
-                    <br>
-                    <img src="../static/images/signup.svg" th:src="@{/images/signup.svg}" class="img-responsive" height="450">
-                </div>
-
             </div>
+
+            <div class="imagen">
+                <br>
+                <img src="../static/images/signup.svg" th:src="@{/images/signup.svg}" class="img-responsive" height="450">
+            </div>
+
         </div>
+    </div>
 
     </div>
-<br><br><br><br><br><br><br><br>
-<footer th:replace="layout/layout :: footer"></footer>
+    <br><br><br><br><br><br><br><br>
+    <footer th:replace="layout/layout :: footer"></footer>
 </body>
 
 </html>
