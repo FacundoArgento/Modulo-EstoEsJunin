@@ -20,6 +20,7 @@ Facundo Argento, Abril Carini, Nicolas Di Pierro, Martín Fargnoli.
 
 * Editar página de profesional.
 * Reportar y responder reseñas.
+* Pruebas unitarias.
 
 ## Cosas a mejorar
 
